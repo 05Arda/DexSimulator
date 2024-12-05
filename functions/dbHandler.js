@@ -1,15 +1,17 @@
 import fs from 'fs';
 
-const dbPath = "./data/database.json";
+const dbPath = {
+    'poolDB': "./data/poolDB.json",
+    'userDB': "./data/userDB.json",
+}
 
-
-function readDatabase() {
-    const data = fs.readFileSync(dbPath);
+function readDatabase(dbType) {
+    const data = fs.readFileSync(dbPath[dbType]);
     return JSON.parse(data);
 }
 
-function writeDatabase(data) {
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+function writeDatabase(dbType, data) {
+    fs.writeFileSync(dbPath[dbType], JSON.stringify(data, null, 2));
 }
 
 export { readDatabase, writeDatabase };

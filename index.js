@@ -19,12 +19,12 @@ async function mainMenu() {
     switch (answers.menu) {
         case ('Likidite Ekle'):
             console.log('Likidite Ekle');
-            console.log(readDatabase())
+            console.log(readDatabase('userDB'));
             break;
 
         case ('Swap'):
             console.log('Token Takas');
-            writeDatabase({test: 'test'})
+            writeDatabase('poolDB', {test: 'test'})
             break;
 
         case ('Havuz Durumunu Görüntüle'):
