@@ -1,0 +1,27 @@
+{
+  "name": "dexsimulator",
+  "version": "1.0.0",
+  "description": "Bu proje, bir Uniswap V2 tarzı merkeziyetsiz borsa (DEX) işleyişini simüle eden bir Node.js tabanlı konsol uygulamasıdır. Kullanıcılar likidite ekleyebilir, token takas işlemleri yapabilir ve havuz durumunu görüntüleyebilir.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/05Arda/DexSimulator.git"
+  },
+  "keywords": [
+    "dex",
+    "simulator",
+    "token",
+    "swap",
+    "uniswap"
+  ],
+  "author": "Arda Öztürk, Talha Kök, Kerem Oral",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "inquirer": "^12.1.0"
+  }
+}

@@ -16,12 +16,12 @@ Bu proje, bir Uniswap V2 tarzı merkeziyetsiz borsa (DEX) işleyişini simüle e
 
 1. **Gerekli Bağımlılıkları Yükleyin:**
    ```bash
-   npm install requirements.txt
+   npm install
    ```
 
 2. **Uygulamayı Çalıştırın:**
    ```bash
-   node app.js
+   node index.js
    ```
 
 ## Kullanım
@@ -37,7 +37,7 @@ Uygulama çalıştırıldığında, aşağıdaki menüden bir seçenek seçebili
 ## Teknolojiler
 
 - **JavaScript & Node.js:** Projenin temel programlama dili.  
-- **Commander.js:** Konsol komutlarını işlemek için.  
+- **Inquirer.js:** Konsol komutlarını işlemek için.  
 - **Chalk:** Konsol çıktısını renklendirmek için.  
 
 ## Katkıda Bulunanlar
