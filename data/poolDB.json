@@ -1,3 +1,5 @@
 {
-  "Pool1": "token1Count/token2Count"
+  "Pool1": "token1Count/token2Count",
+  "Pool2": "token1Count/token2Count",
+  "Pool3": "token1Count/token2Count"
 }

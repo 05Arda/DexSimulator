@@ -1,3 +1,7 @@
 {
-  "UserID": "TokenA++Count"
+  "UserID": {
+    "TokenA": "123",
+    "TokenB": "456",
+    "TokenC": "789"
+  }
 }
