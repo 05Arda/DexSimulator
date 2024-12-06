@@ -3,28 +3,37 @@ import inquirer from 'inquirer';
 import chalk from 'chalk';
 import fs from 'fs';
 
-// Fonksiyonlar
+// Functions
 import { readDatabase, writeDatabase } from './functions/dbHandler.js';
+//  Examples
+//      readDatabase('poolDB');
+//      readDatabase('userDB');
+//      writeDatabase('userDB', data);
 
 
 
 async function mainMenu() {
-    const answers = await inquirer.prompt({
+
+    //Login
+
+
+
+    //Main Menu List
+    const answersMain = await inquirer.prompt({
         name: 'menu',
         type: 'list',
         message: chalk.green('Select an operation'),
         choices: ['Likidite Ekle', 'Swap', 'Havuz Durumunu Görüntüle', 'Kullanıcı Bakiyesini Görüntüle', 'Çıkış'],
     });
 
-    switch (answers.menu) {
+    //Main Menu Switch Answers
+    switch (answersMain.menu) {
         case ('Likidite Ekle'):
             console.log('Likidite Ekle');
-            console.log(readDatabase('userDB'));
             break;
 
         case ('Swap'):
             console.log('Token Takas');
-            writeDatabase('poolDB', {test: 'test'})
             break;
 
         case ('Havuz Durumunu Görüntüle'):
@@ -38,6 +47,10 @@ async function mainMenu() {
         case ('Çıkış'):
             return;
     }
+
+
+
+    //Call Main Menu For REPL (Read–eval–print loop)
     mainMenu();
 };
 
