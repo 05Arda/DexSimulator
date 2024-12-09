@@ -12,14 +12,14 @@ import { printPools } from './functions/liqInfo.js';
 //      readDatabase('userDB');
 //      writeDatabase('userDB', data);
 
-let user = NaN;
+let user = null;
 
 
 async function mainMenu() {
     
     //Login
 
-    while (isNaN(user)) {
+    while (user === null) {
 
         const answersLogin = await inquirer.prompt([
             {
@@ -30,10 +30,9 @@ async function mainMenu() {
         ]);
         
         user = login(answersLogin.username);
-        console.log('user:', isNaN(user));
     }
 
-    console.log('Hoşgeldin ' + answersLogin.username);
+    console.log('Hoşgeldin ' + user);
 
 
     //Main Menu List

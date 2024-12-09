@@ -8,7 +8,7 @@ function login(user) {
     if ( users.privateKey.hasOwnProperty(user) ) {
         return user;
     } else {
-        return NaN;
+        return null;
     }
 }
 
