@@ -9,12 +9,10 @@ import { readDatabase, writeDatabase } from './functions/dbHandler.js';
 import { printPools } from './functions/liqInfo.js';
 import { printUser } from './functions/userInfo.js';
 import { swap } from './functions/swap.js';
-//  Examples
-//      readDatabase('poolDB');
-//      readDatabase('userDB');
-//      writeDatabase('userDB', data);
+import { addLiq } from './functions/addLiq.js';
 
-let user = 'admin';
+
+let user = null;
 
 
 async function mainMenu() {
@@ -52,7 +50,22 @@ async function mainMenu() {
     //Main Menu Switch Answers
     switch (answersMain.menu) {
         case ('Likidite Ekle'):
-            console.log('Likidite Ekle');
+            const answerLiq = await inquirer.prompt([
+                {
+                    name: 'form',
+                    type: 'list',
+                    message: chalk.green('Hangi havuza likidite eklemek istersiniz?'),
+                    choices: Object.keys(readDatabase('poolDB'))
+                },
+                {
+                    name: 'amount',
+                    type: 'input',
+                    message: chalk.green('Miktar:')
+                }
+            ])
+
+            addLiq(user, answerLiq.form, parseFloat(answerLiq.amount));
+
             break;
 
         case ('Swap'):
