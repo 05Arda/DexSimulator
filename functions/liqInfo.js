@@ -22,4 +22,4 @@ function printPools() {
         console.log("----------------------------");
     });
 }
-printPools();
+printPools(); 
