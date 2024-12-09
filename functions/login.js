@@ -1,13 +1,14 @@
-import { readDatabase } from './functions/dbHandler.js';
+import { readDatabase } from './dbHandler.js';
 
 
-function login( privateKey ) {
+function login(user) {
     const users = readDatabase( 'userDB' );
-    const user = users.find( user => user.privateKey === privateKey );
-    if ( user ) {
+    
+    // const user = users.find( user => user.privateKey === privateKey );
+    if ( users.privateKey.hasOwnProperty(user) ) {
         return user;
     } else {
-        return { error: 'User not found' };
+        return NaN;
     }
 }
 

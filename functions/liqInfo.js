@@ -1,4 +1,4 @@
-import { readDatabase } from './database.js';
+import { readDatabase } from './dbHandler.js';
 
 function printPools() {
 
@@ -18,8 +18,9 @@ function printPools() {
         console.log(`${poolName}:`);
         console.log(`  Token 1: ${token1Count}`);
         console.log(`  Token 2: ${token2Count}`);
-        console.log(`  Total Liquidity: ${token1Count + token2Count}`);
+        console.log(`  Total Liquidity Constant: ${token1Count * token2Count}`);
         console.log("----------------------------");
     });
 }
-printPools(); 
+
+export { printPools };

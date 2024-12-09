@@ -4,24 +4,34 @@ import chalk from 'chalk';
 import fs from 'fs';
 
 // Functions
+import { login } from './functions/login.js';
 import { readDatabase, writeDatabase } from './functions/dbHandler.js';
+import { printPools } from './functions/liqInfo.js';
 //  Examples
 //      readDatabase('poolDB');
 //      readDatabase('userDB');
 //      writeDatabase('userDB', data);
 
+let user = NaN;
 
 
 async function mainMenu() {
-
+    
     //Login
-    const answersLogin = await inquirer.prompt([
-        {
-            name: 'username',
-            type: 'input',
-            message: chalk.green('Kullanıcı Adı:'),
-        }
-    ]);
+
+    while (isNaN(user)) {
+
+        const answersLogin = await inquirer.prompt([
+            {
+                name: 'username',
+                type: 'input',
+                message: chalk.green('Kullanıcı Adı:'),
+            }
+        ]);
+        
+        user = login(answersLogin.username);
+        console.log('user:', isNaN(user));
+    }
 
     console.log('Hoşgeldin ' + answersLogin.username);
 
@@ -45,6 +55,7 @@ async function mainMenu() {
             break;
 
         case ('Havuz Durumunu Görüntüle'):
+            printPools();
             console.log('Havuz Durumunu Görüntüle');
             break;
 
