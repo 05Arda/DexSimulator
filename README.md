@@ -43,7 +43,10 @@ Uygulama çalıştırıldığında, aşağıdaki menüden bir seçenek seçebili
 ## Katkıda Bulunanlar
 
 - [05Arda](https://github.com/05Arda)  
-- [talhakok](https://github.com/talhakok)  
+- [talhakok](https://github.com/talhakok)
+  
+## Hicbisey Yapmayanlar (katkıda bulunmayanlar)
+
 - [keremtalhaoral](https://github.com/keremtalhaoral)  
 
 <!-- ## Proje Durumu
