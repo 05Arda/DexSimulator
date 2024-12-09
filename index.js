@@ -15,7 +15,15 @@ import { readDatabase, writeDatabase } from './functions/dbHandler.js';
 async function mainMenu() {
 
     //Login
+    const answersLogin = await inquirer.prompt([
+        {
+            name: 'username',
+            type: 'input',
+            message: chalk.green('Kullanıcı Adı:'),
+        }
+    ]);
 
+    console.log('Hoşgeldin ' + answersLogin.username);
 
 
     //Main Menu List
