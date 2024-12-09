@@ -3,6 +3,7 @@ import fs from 'fs';
 const dbPath = {
     'poolDB': "./data/poolDB.json",
     'userDB': "./data/userDB.json",
+    'tokenDB': "./data/tokenDB.json"
 }
 
 function readDatabase(dbType) {
@@ -15,4 +16,3 @@ function writeDatabase(dbType, data) {
 }
 
 export { readDatabase, writeDatabase };
-

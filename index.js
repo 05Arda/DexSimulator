@@ -7,12 +7,14 @@ import fs from 'fs';
 import { login } from './functions/login.js';
 import { readDatabase, writeDatabase } from './functions/dbHandler.js';
 import { printPools } from './functions/liqInfo.js';
+import { printUser } from './functions/userInfo.js';
+import { swap } from './functions/swap.js';
 //  Examples
 //      readDatabase('poolDB');
 //      readDatabase('userDB');
 //      writeDatabase('userDB', data);
 
-let user = null;
+let user = 'admin';
 
 
 async function mainMenu() {
@@ -43,6 +45,10 @@ async function mainMenu() {
         choices: ['Likidite Ekle', 'Swap', 'Havuz Durumunu Görüntüle', 'Kullanıcı Bakiyesini Görüntüle', 'Çıkış'],
     });
 
+
+    console.clear();
+
+
     //Main Menu Switch Answers
     switch (answersMain.menu) {
         case ('Likidite Ekle'):
@@ -50,16 +56,38 @@ async function mainMenu() {
             break;
 
         case ('Swap'):
-            console.log('Token Takas');
+            const tokens = readDatabase('tokenDB').tokens.filter(token => !token.includes('/'));
+
+            const answerSwap1 = await inquirer.prompt([
+                {
+                    name: 'from',
+                    type: 'list',
+                    message: chalk.green('Hangi tokeni vermek istersiniz?'),
+                    choices: tokens,
+                }
+            ]);
+            const answerSwap2 = await inquirer.prompt([
+                {
+                    name: 'to',
+                    type: 'list',
+                    message: chalk.green(`${answerSwap1.from} karşılığında ne almak istersiniz?`),
+                    choices: tokens.filter(token => token !== answerSwap1.from),
+                },
+                {
+                    name: 'amount',
+                    type: 'input',
+                    message: chalk.green('Miktar:'),
+                }   
+            ]);
+            swap(user, answerSwap1.from, answerSwap2.to, parseFloat(answerSwap2.amount));
             break;
 
         case ('Havuz Durumunu Görüntüle'):
             printPools();
-            console.log('Havuz Durumunu Görüntüle');
             break;
 
         case ('Kullanıcı Bakiyesini Görüntüle'):
-            console.log('Kullanıcı Bakiyesini Görüntüle');
+            printUser(user);
             break;
 
         case ('Çıkış'):

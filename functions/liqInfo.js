@@ -13,11 +13,12 @@ function printPools() {
     
     Object.entries(poolData).forEach(([poolName, liquidity]) => {
         const [token1Count, token2Count] = liquidity.split('/').map(Number);
+        const [poolToken1, poolToken2] = poolName.split('/');
 
 
         console.log(`${poolName}:`);
-        console.log(`  Token 1: ${token1Count}`);
-        console.log(`  Token 2: ${token2Count}`);
+        console.log(`  ${poolToken1}: ${token1Count}`);
+        console.log(`  ${poolToken2}: ${token2Count}`);
         console.log(`  Total Liquidity Constant: ${token1Count * token2Count}`);
         console.log("----------------------------");
     });
